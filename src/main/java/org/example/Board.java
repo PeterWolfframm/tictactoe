@@ -22,7 +22,7 @@ public class Board {
             for (int j = 0; j < 3; j++) {
                 System.out.print(cells[i][j]);
                 if (j < 2) {
-                    System.out.print("|");
+                    System.out.print("I");
                 }
             }
             System.out.println();
@@ -31,4 +31,24 @@ public class Board {
             }
         }
     }
+
+
+    public boolean isCellEmpty(int x, int y) {
+        return cells[x][y] == ' ';
+    }
+
+
+    public void place(int x, int y, char zeichen) {
+        if (isCellEmpty(x, y)) {
+            cells[x][y] = zeichen;
+        }
+    }
+
+    public char getCell(int x, int y) {
+        return cells[x][y];
+    }
+
+
+
+
 }
