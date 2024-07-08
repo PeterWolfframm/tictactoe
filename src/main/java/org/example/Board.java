@@ -32,11 +32,20 @@ public class Board {
         }
     }
 
-
     public boolean isCellEmpty(int x, int y) {
         return cells[x][y] == ' ';
     }
 
+    public boolean isFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (cells[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
     public void place(int x, int y, char zeichen) {
         if (isCellEmpty(x, y)) {
