@@ -2,7 +2,7 @@ name: Java CI
 
 on:
   push:
-    branches: [main]
+    branches: [ghactions]
   pull_request:
     branches: [main]
 
