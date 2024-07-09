@@ -13,6 +13,7 @@ public class TicTacToeTest {
 
     @BeforeEach
     public void setUp() {
+        
         ticTacToe = new TicTacToe();
         playerX = new Player('❌');
         playerO = new Player('◯');
