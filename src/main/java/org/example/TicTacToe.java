@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.InputMismatchException;
-
 public class TicTacToe {
     private Player player1;
     private Player player2;
