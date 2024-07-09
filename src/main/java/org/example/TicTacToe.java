@@ -21,26 +21,26 @@ public class TicTacToe {
         while (gameOn) {
             board.print();
 
-                int reihe = getUserInput("Reihe eingeben (0,1,2)");
-                int spalte = getUserInput("Spalte eingeben (0,1,2)");
+            int reihe = getUserInput("Reihe eingeben (0,1,2)");
+            int spalte = getUserInput("Spalte eingeben (0,1,2)");
 
-                if (board.isCellEmpty(reihe, spalte)) {
-                    board.place(reihe, spalte, currentPlayer.getZeichen());
-                    if (hasWinner()) {
-                        board.print();
-                        System.out.println("Spieler " + currentPlayer.getZeichen() + " hat gewonnen!");
-                        gameOn = false;
-                    } else if (board.isFull()) {
-                        board.print();
-                        System.out.println("Unentschieden!");
-                        gameOn = false;
-                    } else {
-                        System.out.println("____________________________");
-                        switchCurrentPlayer();
-                    }
+            if (board.isCellEmpty(reihe, spalte)) {
+                board.place(reihe, spalte, currentPlayer.getZeichen());
+                if (hasWinner()) {
+                    board.print();
+                    System.out.println("Spieler " + currentPlayer.getZeichen() + " hat gewonnen!");
+                    gameOn = false;
+                } else if (board.isFull()) {
+                    board.print();
+                    System.out.println("Unentschieden!");
+                    gameOn = false;
                 } else {
-                    System.out.println("Zelle nicht benutzbar");
+                    System.out.println("____________________________");
+                    switchCurrentPlayer();
                 }
+            } else {
+                System.out.println("Zelle nicht benutzbar");
+            }
 
         }
     }
