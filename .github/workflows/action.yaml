@@ -22,7 +22,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Validate, compile, and test
-        run: mvn -f ../pom.xml verify
+        run: mvn verify
 
       - name: Run Checkstyle
-        run: mvn -f ../pom.xml verify
+        run: mvn checkstyle:check
