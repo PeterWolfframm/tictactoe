@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
       - name: Set up JDK 20
         uses: actions/setup-java@v3
         with:
@@ -19,7 +22,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Validate, compile, and test
-        run: mvn verify
+        run: mvn -f ../../pom.xml verify
 
       - name: Run Checkstyle
-        run: mvn checkstyle:check
+        run: mvn -f ../../pom.xml verify
