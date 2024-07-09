@@ -1,10 +1,12 @@
-name: Java CI
+name: Java CI - Test
 
 on:
   push:
-    branches: [ghactions]
+    branches-ignore:
+      - main
   pull_request:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build:

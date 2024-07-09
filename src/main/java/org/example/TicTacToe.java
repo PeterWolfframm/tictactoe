@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class TicTacToe {
     private Player player1;
     private Player player2;
@@ -13,34 +15,45 @@ public class TicTacToe {
         board = new Board();
     }
     public void start() {
-        board.clear();
-        boolean gameOn = true;
+        boolean playAgain;
+        do {
+            board.clear();
+            boolean gameOn = true;
 
-        while (gameOn) {
-            board.print();
+            while (gameOn) {
+                board.print();
 
-            int reihe = getUserInput("Reihe eingeben (0,1,2)");
-            int spalte = getUserInput("Spalte eingeben (0,1,2)");
+                int reihe = getUserInput("Reihe eingeben (0,1,2): ");
+                int spalte = getUserInput("Spalte eingeben (0,1,2): ");
 
-            if (board.isCellEmpty(reihe, spalte)) {
-                board.place(reihe, spalte, currentPlayer.getZeichen());
-                if (hasWinner()) {
-                    board.print();
-                    System.out.println("Spieler " + currentPlayer.getZeichen() + " hat gewonnen!");
-                    gameOn = false;
-                } else if (board.isFull()) {
-                    board.print();
-                    System.out.println("Unentschieden!");
-                    gameOn = false;
+                if (board.isCellEmpty(reihe, spalte)) {
+                    board.place(reihe, spalte, currentPlayer.getZeichen());
+                    if (hasWinner()) {
+                        board.print();
+                        System.out.println("Spieler " + currentPlayer.getZeichen() + " hat gewonnen!");
+                        gameOn = false;
+                    } else if (board.isFull()) {
+                        board.print();
+                        System.out.println("Unentschieden!");
+                        gameOn = false;
+                    } else {
+                        System.out.println("____________________________");
+                        switchCurrentPlayer();
+                    }
                 } else {
-                    System.out.println("____________________________");
-                    switchCurrentPlayer();
+                    System.out.println("Zelle nicht benutzbar");
                 }
-            } else {
-                System.out.println("Zelle nicht benutzbar");
             }
 
-        }
+            playAgain = getPlayAgainInput("Bock auf mehr, du Süchtler? (ja/nein): ");
+        } while (playAgain);
+    }
+
+    private boolean getPlayAgainInput(String message) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(message);
+        String input = scanner.nextLine().trim().toLowerCase();
+        return input.equals("ja");
     }
     private int getUserInput(String message) {
         System.out.print(message);
