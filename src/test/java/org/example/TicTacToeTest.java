@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class Tests {
+public class TicTacToeTest {
 
     private TicTacToe ticTacToe;
     private Board board;
